@@ -14,6 +14,10 @@
     "page": "./about"
   },
   {
+    "path": "/game",
+    "page": "./game"
+  },
+  {
     "path": "/tasks/:status(pending|completed)?",
     "page": "./home"
   }

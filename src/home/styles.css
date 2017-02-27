@@ -1,6 +1,10 @@
 .centerText {
   text-align: center;
 }
+.bigText {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
 
 @media screen and (max-width: 1024px) {
   .content {
