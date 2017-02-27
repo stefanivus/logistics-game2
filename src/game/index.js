@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 
 import CompanyDashboard from '../../components/Dashboard'
-import Map from './components/Map'
+import Map from './components/Map/Map'
 
 class Logistics extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class Logistics extends React.Component {
         <CompanyDashboard />
 
         <h3>Client List - with smiley face </h3>
-        
+
       </Layout>
     );
   }
