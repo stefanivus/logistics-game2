@@ -3,11 +3,10 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Justin -- Developer, made everything -- Github: JChang4
 
 # THANKS
 
-    <name>
 
 # TECHNOLOGY COLOPHON
 
