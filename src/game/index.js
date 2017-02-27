@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
+import CompanyDashboard from '../../components/Dashboard'
 
 class Logistics extends React.Component {
   render() {
@@ -10,7 +11,7 @@ class Logistics extends React.Component {
 
         <h1>Map</h1>
 
-        <h3>Company Dashboard</h3>
+        <CompanyDashboard />
 
       </Layout>
     );
