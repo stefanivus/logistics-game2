@@ -57,20 +57,20 @@ const reducer_company = (state = initialState_company, action) => {
     }
 */
 const initialState_map = {
-  gridN: 0,
+  gridSize: 0,        // length of one side; N x N Map
   dropzoneCoords: [], // drop zone (row, col)
   basecampCoords: []  // base camp (row, col)
 }
 
-const reducer_company = (state = initialState_map, action) => {
+const reducer_map = (state = initialState_map, action) => {
   switch (action.type) {
     /*
     case 'ADD_DROPZONE':
     case 'REMOVE_DROPZONE':
     case 'ADD_BASECAMP':
     case 'REMOVE_BASECAMP':
-    case 'ADD_GRIDN':
-    case 'EDIT_GRIDN':
+    case 'ADD_GRIDSIZE':
+    case 'EDIT_GRIDSIZE':
     */
     default:
       return state;
