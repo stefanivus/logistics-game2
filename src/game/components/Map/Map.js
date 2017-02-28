@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import s from './map.css'
 
-import GridTile from './GridTile'
+
+import MapTile from './MapTile'
 
 class Map extends React.Component {
 
@@ -14,52 +15,86 @@ class Map extends React.Component {
     super(props);
 
     // Default grid size = 10
-    let gridSize = 10;
+    let gridN = 10;
     if (this.props.gridSize && this.props.gridSize > 0)
-      gridSize = this.props.gridSize;
+      gridN = this.props.gridSize;
 
     this.state = {
-      gridSize: gridSize,
-      totalSquares: gridSize * gridSize,
-      gridTiles: [] // a 2-D array, (row, col)
+      gridN: gridN,
+      totalSquares: gridN * gridN,
+      gridTiles: [],
+      tileSize: 0, // square tile's size
     }
   }
 
-  componentDidMount() {
-    // Determine Width of <GridTile>
-    // (width of main <div> / gridSize)
-    var gridWidth = findDOMNode(this.refs.gridContainer).offsetWidth;
-    var tileWidth = gridWidth / this.state.gridSize;
+  updateDimensions() {
+    var gridWidth = findDOMNode(this.refs.mapContainer).offsetWidth;
+    var tileSize = gridWidth / this.state.gridN;
 
-    // Put all <GridTiles> in Array
-    var gridTiles = [];
+    this.setState({ tileSize });
+  }
 
-    for (var i = 0; i < this.state.totalSquares; i++) {
-      gridTiles.push((
-        <GridTile
+  createGameBoard () {
+    /*
+      Determine Width of <Tile>
+      width of main <div> divided by gridN (i.e. width / N)
+
+      Have to use componentDidMount instead of constructor because
+      we don't have access to 'refs' until then, and cannot set
+      tileSize
+    */
+    var gridTiles = []; // Put all <Tiles> in Array
+    var currRow = [];
+    for (var i = 1; i <= this.state.totalSquares; i++) {
+      currRow.push((
+        <MapTile
           text={i}
-          key={"tile" + i}
-          size={tileWidth} />
+          key={'tile'+i}
+          size={this.state.tileSize} />
       ));
-    }
 
+      if (i % this.state.gridN == 0) {
+        var row = currRow.slice();
+        gridTiles.push(row); // .slice will create copy of array
+        currRow = [];
+      }
+    }
     this.setState({ gridTiles });
   }
 
+  redrawBoard() {
+    return fetch('pageThatDoesntExist') // use 'fetch' for the Promise
+    .catch()
+    .then(this.updateDimensions.bind(this)) // need this.state.tileSize
+    .then(this.createGameBoard.bind(this)); // for game board
+  }
+
+  componentDidMount() {
+    this.redrawBoard();
+    
+    // Add Event Listeners to Resize Tiles
+    window.addEventListener('resize', this.redrawBoard.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.redrawBoard.bind(this));
+  }
+
   render() {
-
-    console.log(this.state.gridTiles);
-
     return (
-      <div>
-        <h2>Grid Size: {this.state.gridSize} x {this.state.gridSize}</h2>
+      <div className={s.mapContainer} ref="mapContainer">
+        <h2>Grid Size: {this.state.gridN} x {this.state.gridN}</h2>
 
-        <div className={s.tileContainer} ref="gridContainer">
-          {this.state.gridTiles.map((row) => {
-            return row;
+        {/* Create Board */}
+        <div ref="gridContainer">
+          {this.state.gridTiles.map((row, idx) => {
+            return (
+              <div className={s.tileContainer} key={"row" + idx}>
+                {row}
+              </div>
+            )
           })}
         </div>
-
       </div>
     );
   }
