@@ -6,9 +6,10 @@ class Dashboard extends React.Component {
     return (
       <div className={s.dashContainer}>
 
-        <h1 style={{textAlign: "center"}}>Dashboard</h1>
+        <h1>Dashboard</h1>
 
         <div>
+          asdfsdf
         </div>
 
         {/* <div className={"mdl-grid"}>
