@@ -8,12 +8,15 @@ class Dashboard extends React.Component {
 
         <h1 style={{textAlign: "center"}}>Dashboard</h1>
 
-        <div className={"mdl-grid"}>
+        <div>
+        </div>
+
+        {/* <div className={"mdl-grid"}>
           <div className="mdl-cell mdl-cell--4-col">Company Information</div>
           <div className="mdl-cell mdl-cell--2-col">Vehicle List</div>
           <div className="mdl-cell mdl-cell--2-col">Employee List</div>
           <div className="mdl-cell mdl-cell--2-col">Deliveries in Queue</div>
-        </div>
+        </div> */}
       </div>
     );
   }

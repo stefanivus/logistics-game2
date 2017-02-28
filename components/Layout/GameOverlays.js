@@ -5,7 +5,7 @@ import s from './GameOverlays.css'
 class GameOverlays extends React.Component {
   render() {
     return (
-        <div {...this.props} className={cx(s.overlayContainer, this.props.className)} />
+        <div {...this.props} className={cx("mdl-layout__content", this.props.className)} />
     );
   }
 }
