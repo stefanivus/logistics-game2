@@ -17,10 +17,19 @@ class MapTile extends React.Component {
       width: adjustedTileSize
     }
 
+    // Display Row and Col
+    let row = Math.floor((this.props.number / this.props.N)) + 1;
+    let col = this.props.number;
+    if (row > 1 && (this.props.number % this.props.N == 0))
+      row -= 1;
+    if (this.props.number > this.props.N)
+      col -= ((row-1) * this.props.N);
+
     return (
       <div style={tileSize} className={s.tile}>
-        <p>number: {this.props.text}</p>
-        <p>size: {this.props.size}</p>
+        <p>(row, col)</p>
+        <p>{this.props.number}</p>
+        <p>({row}, {col})</p>
       </div>
     )
   }

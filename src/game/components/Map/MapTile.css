@@ -1,6 +1,9 @@
 
 .tile {
-  text-align: center;
-  /*padding: 10px 15px;*/
   border: 1px solid green;
+  display: inline-block;
+  height: 100%;
+  min-height: 100px;
+  /*padding: 10px 15px;*/
+  text-align: center;
 }

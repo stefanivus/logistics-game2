@@ -2,9 +2,17 @@ import React, { PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import s from './map.css'
 
-
 import MapTile from './MapTile'
 
+
+/*
+  TODO:
+    * Add random dropzone locations
+    * Add random basecamp location
+    * Have tiles change style if they're dropzone
+    * Send dropzone locations and base camp to
+      State
+*/
 class Map extends React.Component {
 
   static propTypes = {
@@ -21,15 +29,13 @@ class Map extends React.Component {
 
     this.state = {
       gridN: gridN,
-      totalSquares: gridN * gridN,
-      gridTiles: [],
       tileSize: 0, // square tile's size
     }
   }
 
   updateDimensions() {
-    var gridWidth = findDOMNode(this.refs.mapContainer).offsetWidth;
-    var tileSize = gridWidth / this.state.gridN;
+    let gridWidth = findDOMNode(this.refs.tileContainer).offsetWidth - 30; // subtract padding
+    let tileSize = gridWidth / this.state.gridN;
 
     this.setState({ tileSize });
   }
@@ -43,12 +49,15 @@ class Map extends React.Component {
       we don't have access to 'refs' until then, and cannot set
       tileSize
     */
-    var gridTiles = []; // Put all <Tiles> in Array
-    var currRow = [];
-    for (var i = 1; i <= this.state.totalSquares; i++) {
+    let gridTiles = []; // Put all <Tiles> in Array
+    let currRow = [];
+    let totalSquares = this.state.gridN * this.state.gridN;
+
+    for (var i = 1; i <= totalSquares; i++) {
       currRow.push((
         <MapTile
-          text={i}
+          number={i}
+          N={this.state.gridN}
           key={'tile'+i}
           size={this.state.tileSize} />
       ));
@@ -59,40 +68,40 @@ class Map extends React.Component {
         currRow = [];
       }
     }
-    this.setState({ gridTiles });
-  }
-
-  redrawBoard() {
-    return fetch('pageThatDoesntExist') // use 'fetch' for the Promise
-    .catch()
-    .then(this.updateDimensions.bind(this)) // need this.state.tileSize
-    .then(this.createGameBoard.bind(this)); // for game board
+    return gridTiles;
   }
 
   componentDidMount() {
-    this.redrawBoard();
-    
+    // There's a problem rendering the tile sizes
+    // pushing this function back in the call stack
+    // seems to fix the problem
+    fetch('NonExistentPage')
+    .catch()
+    .then(this.updateDimensions.bind(this));
+
     // Add Event Listeners to Resize Tiles
-    window.addEventListener('resize', this.redrawBoard.bind(this));
+    window.addEventListener('resize', this.updateDimensions.bind(this), false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.redrawBoard.bind(this));
+    window.removeEventListener('resize', this.updateDimensions.bind(this), false);
   }
 
   render() {
+    let gridTiles = this.createGameBoard();
+
     return (
       <div className={s.mapContainer} ref="mapContainer">
-        <h2>Grid Size: {this.state.gridN} x {this.state.gridN}</h2>
+        <h2 style={{textAlign: 'center'}}>Grid Size: {this.state.gridN} x {this.state.gridN}</h2>
 
         {/* Create Board */}
-        <div ref="gridContainer">
-          {this.state.gridTiles.map((row, idx) => {
+        <div ref="tileContainer">
+          {gridTiles.map((row, idx) => {
             return (
-              <div className={s.tileContainer} key={"row" + idx}>
+              <div className={s.tileContainer}>
                 {row}
               </div>
-            )
+            );
           })}
         </div>
       </div>

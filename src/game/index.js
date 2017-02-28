@@ -9,7 +9,7 @@ class Logistics extends React.Component {
     return (
       <Layout>
 
-        <Map gridSize={5} />
+        <Map gridSize={4} />
 
         <CompanyDashboard />
 
