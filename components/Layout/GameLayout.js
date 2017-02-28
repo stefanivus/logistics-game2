@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from '../Footer';
 import s from './Layout.css';
 
-class Layout extends React.Component {
+class GameLayout extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -25,7 +25,7 @@ class Layout extends React.Component {
 
           <Header />
 
-          <main className="mdl-layout__content" style={{flex: '1 0 auto'}}>
+          <main className="mdl-layout__content">
             <div {...this.props} className={cx(s.content, this.props.className)} />
             <Footer />
           </main>
@@ -36,4 +36,4 @@ class Layout extends React.Component {
   }
 }
 
-export default Layout;
+export default GameLayout;

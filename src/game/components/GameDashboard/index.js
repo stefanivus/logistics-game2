@@ -46,45 +46,14 @@ class GameOverlays extends React.Component {
 
   render() {
 
-    let faIcons = ['fa-truck', 'fa-id-card-o', 'fa-users'];
+    let iconClassnames = ['fa-truck', 'fa-id-card-o', 'fa-users'];
 
     return (
         <div className={s.overlayContainer}>
 
           {/* Tab Content */}
-          <div ref="tabContentContainer" className={s['tab-content']}>
+          <div ref="tabContentContainer" className={s['tab-content--container']}>
             {this.state.currentTab == 0 && <div ref="tab1">
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
-              <div>one</div>
               <div>one</div>
             </div>}
             {this.state.currentTab == 1 && <div ref="tab1">
@@ -103,9 +72,13 @@ class GameOverlays extends React.Component {
               Clients
           */}
           <div className={s['tab-icons']}>
-            {faIcons.map((icon, id) => {
+            {iconClassnames.map((icon, id) => {
               return (
-                <div data-id={id} className={s.icon} onClick={(e) => this.handleTabClick(e)} key={icon}>
+                <div
+                  data-id={id}
+                  className={s.icon}
+                  onClick={(e) => this.handleTabClick(e)} key={icon}
+                >
                   <i data-id={id} className={"fa fa-4x " + icon}></i>
                 </div>
               );
