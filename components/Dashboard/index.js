@@ -4,9 +4,9 @@ import s from './styles.css'
 class Dashboard extends React.Component {
   render() {
     return (
-      <div className={s.border}>
+      <div className={s.dashContainer}>
 
-        <h1>Dashboard</h1>
+        <h1 style={{textAlign: "center"}}>Dashboard</h1>
 
         <div className={"mdl-grid"}>
           <div className="mdl-cell mdl-cell--4-col">Company Information</div>

@@ -3,6 +3,11 @@ import s from './MapTile.css'
 
 /*
   Square Game Tile
+
+  TODO:
+    * Border on Left and bottom
+    * if first row Border on top
+    * if last col, border on right
 */
 class MapTile extends React.Component {
   static propTypes = {

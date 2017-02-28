@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
 
+import GameOverlays from '../../components/Layout/GameOverlays'
 import CompanyDashboard from '../../components/Dashboard'
 import Map from './components/Map/Map'
 
@@ -11,10 +12,10 @@ class Logistics extends React.Component {
 
         <Map gridSize={4} />
 
-        <CompanyDashboard />
-
-        <h3>Client List - with smiley face </h3>
-
+        <GameOverlays>
+          <CompanyDashboard />
+          
+        </GameOverlays>
       </Layout>
     );
   }
