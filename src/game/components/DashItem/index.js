@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 import s from './styles.css'
 
 
@@ -25,8 +26,14 @@ import s from './styles.css'
 class DashItem extends React.Component {
   render() {
     return (
-      <div className={s.dashItem}>
-        <div>Hello</div>
+      <div className={s.itemContainer}>
+
+        <i className={cx("fa fa-bicycle", s.icon)}></i>
+
+        <div className={s.name}>Bicycle</div>
+
+        <div className={s.milesPerGallon}>mpg: unlimited</div>
+
       </div>
     )
   }
