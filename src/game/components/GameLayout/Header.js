@@ -1,7 +1,7 @@
 import React from 'react';
-import Navigation from './Navigation';
-import Link from '../../../../components/Link';
 import s from './Header.css';
+
+import Link from '../../../../components/Link';
 
 class Header extends React.Component {
 
@@ -23,9 +23,6 @@ class Header extends React.Component {
           </Link>
 
           <div className="mdl-layout-spacer" />
-
-          {/* <Navigation /> */}
-          
 
         </div>
       </header>

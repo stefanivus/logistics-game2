@@ -13,7 +13,7 @@ class Logistics extends React.Component {
         <Map gridSize={5} />
 
         <GameDashboard />
-
+        
       </GameLayout>
     );
   }

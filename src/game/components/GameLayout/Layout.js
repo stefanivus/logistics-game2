@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
+
 import Header from './Header';
+import Drawer from './Drawer';
 // import Footer from '../Footer';
 import s from './Layout.css';
 
@@ -25,8 +27,10 @@ class GameLayout extends React.Component {
         <div className="mdl-layout__inner-container">
 
           <Header />
+          <Drawer />
 
           <main className="mdl-layout__content" style={{flex: '1 0 auto'}}>
+
             <div {...this.props} className={this.props.className} />
             {/* <Footer /> */}
           </main>
