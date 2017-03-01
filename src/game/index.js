@@ -9,8 +9,8 @@ class Logistics extends React.Component {
   render() {
     return (
       <Layout>
-
-        <Map gridSize={8} />
+        
+        <Map gridSize={5} />
 
         <GameDashboard />
 
