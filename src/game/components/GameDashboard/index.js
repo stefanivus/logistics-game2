@@ -2,7 +2,16 @@ import React from 'react'
 import cx from 'classnames'
 import s from './styles.css'
 
+import DashItem from '../DashItem'
 
+/*
+  TODO
+    * grab current employees, vehicles, and clients
+      from Redux
+    * Add new employees, vehicles
+    * Cannot move more vehicles than # of employees
+
+*/
 class GameOverlays extends React.Component {
 
   constructor(props) {
@@ -44,7 +53,15 @@ class GameOverlays extends React.Component {
     this.handleTabChange(tabId);
   }
 
+
+
+
   render() {
+
+    let tempDashItems = [];
+    for (var i = 0; i < 10; i++) {
+      tempDashItems.push(<DashItem />)
+    }
 
     let iconClassnames = ['fa-truck', 'fa-id-card-o', 'fa-users'];
 
@@ -54,7 +71,7 @@ class GameOverlays extends React.Component {
           {/* Tab Content */}
           <div ref="tabContentContainer" className={s['tab-content--container']}>
             {this.state.currentTab == 0 && <div ref="tab1">
-              <div>one</div>
+              {tempDashItems}
             </div>}
             {this.state.currentTab == 1 && <div ref="tab1">
               two
