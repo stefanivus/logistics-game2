@@ -12,6 +12,10 @@ class GameLayout extends React.Component {
     className: PropTypes.string,
   };
 
+  static defaultProps = {
+    className: "",
+  };
+
   /* These are handlers used by MDL */
   componentDidMount() {
     window.componentHandler.upgradeElement(this.root);

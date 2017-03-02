@@ -9,10 +9,10 @@ class Logistics extends React.Component {
   render() {
     return (
       <GameLayout>
-
+        
         <Map gridSize={5} />
 
-        <GameDashboard />
+        {/* <GameDashboard /> */}
 
       </GameLayout>
     );

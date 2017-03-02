@@ -9,6 +9,7 @@ class Drawer extends React.Component {
   };
 
   static defaultProps = {
+    className: "",
     title: "Drawer Title"
   }
 
@@ -24,7 +25,7 @@ class Drawer extends React.Component {
     const { className, title } = this.props;
 
     return (
-      <div className={`mdl-layout__drawer ${s.rightSide} ${className}`} ref={node => (this.root = node)}>
+      <div className={`mdl-layout__drawer ${className}`} ref={node => (this.root = node)}>
 
         {/* Title */}
         <span className="mdl-layout-title">{title}</span>
