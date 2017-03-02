@@ -21,8 +21,8 @@ class Header extends React.Component {
           <Link className={`mdl-layout-title ${s.title}`} to="/">
             Logistics
           </Link>
-
-          {/* <div className="mdl-layout-spacer" /> */}
+          
+          <div className="mdl-layout-spacer" />
 
         </div>
       </header>

@@ -1,0 +1,4 @@
+.mdl-layout__drawer-button, .mdl-layout__drawer{
+  left: initial;
+  right: 0;
+}

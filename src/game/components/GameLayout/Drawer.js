@@ -1,10 +1,16 @@
 import React, { PropTypes } from 'react'
+import s from './Drawer.css'
 
 class Drawer extends React.Component {
 
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    title: PropTypes.string
   };
+
+  static defaultProps = {
+    title: "Drawer Title"
+  }
 
   componentDidMount() {
     window.componentHandler.upgradeElement(this.root);
@@ -15,20 +21,16 @@ class Drawer extends React.Component {
   }
 
   render() {
+    const { className, title } = this.props;
+
     return (
-      <div className="mdl-layout__drawer" ref={node => (this.root = node)}>
+      <div className={`mdl-layout__drawer ${s.rightSide} ${className}`} ref={node => (this.root = node)}>
 
         {/* Title */}
-        <span className="mdl-layout-title">Dashboard</span>
+        <span className="mdl-layout-title">{title}</span>
 
-        {/* Nagivation */}
-        <nav className="mdl-navigation">
-          <a className="mdl-navigation__link" href="">Link</a>
-          <a className="mdl-navigation__link" href="">Link</a>
-          <a className="mdl-navigation__link" href="">Link</a>
-          <a className="mdl-navigation__link" href="">Link</a>
-        </nav>
-        
+        <div {...this.props}></div>
+
       </div>
     )
   }

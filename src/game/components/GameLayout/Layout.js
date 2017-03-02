@@ -27,11 +27,14 @@ class GameLayout extends React.Component {
         <div className="mdl-layout__inner-container">
 
           <Header />
-          <Drawer />
+          <Drawer title="Company Dashboard"></Drawer>
 
           <main className="mdl-layout__content" style={{flex: '1 0 auto'}}>
-            <div {...this.props} className={this.props.className} />
+            {/* Child Componenta */}
+            <div {...this.props} className={this.props.className}></div>
+
             {/* <Footer /> */}
+
           </main>
 
         </div>
