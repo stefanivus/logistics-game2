@@ -22,7 +22,7 @@ class Header extends React.Component {
             Logistics
           </Link>
 
-          <div className="mdl-layout-spacer" />
+          {/* <div className="mdl-layout-spacer" /> */}
 
         </div>
       </header>

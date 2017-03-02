@@ -23,14 +23,13 @@ class GameLayout extends React.Component {
 
   render() {
     return (
-      <div className="mdl-layout mdl-js-layout">
+      <div className="mdl-layout mdl-js-layout" ref={node => (this.root = node)}>
         <div className="mdl-layout__inner-container">
 
           <Header />
           <Drawer />
 
           <main className="mdl-layout__content" style={{flex: '1 0 auto'}}>
-
             <div {...this.props} className={this.props.className} />
             {/* <Footer /> */}
           </main>
@@ -41,4 +40,4 @@ class GameLayout extends React.Component {
   }
 }
 
-export default GameLayout;
+        export default GameLayout;
