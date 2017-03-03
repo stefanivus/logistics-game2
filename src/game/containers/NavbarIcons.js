@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-// import s from './Layout.css';
+import s from './NavbarIcons.css';
 
 import Icon from '../components/Icon';
 import SideMenu from '../components/GameNavbar/SideMenu';
@@ -66,22 +66,22 @@ class NavbarIconsContainer extends React.Component {
     const { className } = this.props;
 
     return (
-      <div className={className}>
+      <div className={s.iconContainer}>
 
-        {/* Icons that toggle side menu */}
-        {this.props.faIcons.map((icon) => {
-          return (
-            <Icon key={icon}
-              className={"fa fa-3x " + icon}
-              onClick={this.toggleSideMenu}/>
-          );
-        })}
+        <div className={className}>
+          {/* Icons that toggle side menu */}
+          {this.props.faIcons.map((icon) => {
+            return (
+              <Icon key={icon}
+                className={"fa fa-3x " + icon}
+                onClick={this.toggleSideMenu}/>
+            );
+          })}
+        </div>
 
         <SideMenu
           open={this.state.menuOpen}
-          data={[]}
-
-        />
+          data={[]} />
 
       </div>
     );

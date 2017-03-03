@@ -4,10 +4,12 @@
   display: flex;
   justify-content: space-between;
   padding: 25px;
+  overflow: hidden;
 
   /* Colors */
   background: #00796B;
   color: white;
+  box-shadow: 2px 2px 10px darkgray;
 }
 
 .title {

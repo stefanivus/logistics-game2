@@ -30,7 +30,8 @@ class SideMenu extends React.Component {
       var container = findDOMNode(this.container);
 
       /* Toggle .open
-        This works because there is a global style sheet
+
+        NOTE This works because there is a global style sheet
         loaded in the index.ejs that overwrites via:
 
           transform: translateX(0) !important; <= I know. temp solution
@@ -39,8 +40,6 @@ class SideMenu extends React.Component {
       if (container.classList.contains('open'))
         container.classList.remove('open');
       else container.classList.add('open');
-
-      console.log(container.classList);
   }
 
   // changeContent() {}
@@ -50,7 +49,7 @@ class SideMenu extends React.Component {
     const { className } = this.props;
 
     return (
-      <div ref={node => (this.container = node)} className={`.jc-sideMenu ${s.container}`}>
+      <div ref={node => (this.container = node)} className={`jc-sideMenu ${s.container}`}>
         SideMenu
       </div>
     );
