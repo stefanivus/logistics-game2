@@ -3,7 +3,9 @@ import cx from 'classnames';
 import s from './Layout.css';
 
 // import Header from './Header';
-// import Footer from '../Footer';
+// import Footer from './Footer';
+import GameNavbar from '../GameNavbar';
+import Icon from '../Icon';
 
 class Layout extends React.Component {
 
@@ -11,10 +13,24 @@ class Layout extends React.Component {
     className: PropTypes.string,
   };
 
+  static defaultProps = {
+    className: "",
+  };
+
   render() {
     return (
       <div className={s.layout}>
-        hello
+
+        {/* <Header /> */}
+
+        <GameNavbar title="Logistics">
+          <Icon />
+          <Icon />
+          <Icon />
+        </GameNavbar>
+
+        <div {...this.props} className={cx(s.links)}/>
+
       </div>
     );
   }

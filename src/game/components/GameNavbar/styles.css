@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+
+  background: #00796B;
+  color: white;
+
+
+}
+
+.title {
+  /* Use FlexBox to vertically center the content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.links {
+  display: inline-flex;
+  float:right;
+}
+/* Space the children out */
+.links * {
+  margin: 0 25px;
+}
+
+.links *:hover {
+  background:
+}
