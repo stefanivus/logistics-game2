@@ -5,18 +5,9 @@ import s from './Layout.css';
 // import Header from './Header';
 // import Footer from './Footer';
 import GameNavbar from '../GameNavbar';
-import Icon from '../Icon';
+import IconsContainer from '../../containers/NavbarIcons';
 
 class Layout extends React.Component {
-
-  static propTypes = {
-    className: PropTypes.string,
-  };
-
-  static defaultProps = {
-    className: "",
-  };
-
   render() {
     return (
       <div className={s.layout}>
@@ -24,9 +15,7 @@ class Layout extends React.Component {
         {/* <Header /> */}
 
         <GameNavbar title="Logistics">
-          <Icon />
-          <Icon />
-          <Icon />
+          <IconsContainer />
         </GameNavbar>
 
         <div {...this.props} className={cx(s.links)}/>

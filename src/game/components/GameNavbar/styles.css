@@ -1,13 +1,13 @@
 .container {
+  /* Layout & Positioning */
   position: relative;
   display: flex;
   justify-content: space-between;
   padding: 25px;
 
+  /* Colors */
   background: #00796B;
   color: white;
-
-
 }
 
 .title {
@@ -16,17 +16,4 @@
   flex-direction: column;
   justify-content: center;
   font-size: 2rem;
-}
-
-.links {
-  display: inline-flex;
-  float:right;
-}
-/* Space the children out */
-.links * {
-  margin: 0 25px;
-}
-
-.links *:hover {
-  background:
 }

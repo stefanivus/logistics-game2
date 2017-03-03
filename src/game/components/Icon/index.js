@@ -1,11 +1,20 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-// import s from './Layout.css';
+import s from './styles.css';
 
+
+/*
+  Game Icon
+  These Provide a dropdown menu managed in Navbar
+*/
 class Icon extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+  };
+
+  static defaultProps = {
+    className: "",
   };
 
   handleClickEvent({ target }) {
@@ -13,9 +22,11 @@ class Icon extends React.Component {
   }
 
   render() {
+    const { className } = this.props;
     return (
       // <i className={cx(s.icon)}></i>
-      <i className={"fa fa-bicycle fa-4x"}></i>
+      <i className={cx(s.icon, className)}
+        onClick={e => (this.handleClickEvent(e))} ></i>
     );
   }
 }

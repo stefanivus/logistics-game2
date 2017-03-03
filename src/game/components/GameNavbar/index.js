@@ -20,7 +20,8 @@ class GameNavbar extends React.Component {
 
         <div className={s.title}>{title}</div>
 
-        <div {...this.props} className={cx(s.links)}/>
+        {/* Child Components */}
+        <div {...this.props} className={s.links}/>
 
       </nav>
     )
