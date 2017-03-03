@@ -36,6 +36,32 @@ class NavbarIconsContainer extends React.Component {
     faIcons: ["fa-bicycle", "fa-truck"]
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menuOpen: false,
+
+    }
+
+    // Bind Functions
+    this.toggleSideMenu = this.toggleSideMenu.bind(this);
+  }
+
+  /*
+    item => employee, vehicles, clients
+  */
+  getItemsFromState(item){}
+
+  toggleSideMenu() {
+    // if (this.state.menuOpen) { // Its open, close the menu
+    //
+    // } else { // its closed, open it
+    //
+    // }
+    this.setState({ menuOpen: !this.state.menuOpen });
+  }
+
   render() {
     const { className } = this.props;
 
@@ -44,10 +70,18 @@ class NavbarIconsContainer extends React.Component {
 
         {/* Icons that toggle side menu */}
         {this.props.faIcons.map((icon) => {
-          return (<Icon className={"fa fa-3x " + icon} key={icon} />);
+          return (
+            <Icon key={icon}
+              className={"fa fa-3x " + icon}
+              onClick={this.toggleSideMenu}/>
+          );
         })}
 
-        <SideMenu />
+        <SideMenu
+          open={this.state.menuOpen}
+          data={[]}
+
+        />
 
       </div>
     );

@@ -1,0 +1,7 @@
+/*
+    Game Side Menu
+*/
+
+.jc-sideMenu.open {
+  transform: translateX(0) !important;
+}

@@ -1,6 +1,8 @@
 
 .container {
   background: #004D40;
+  overflow-x: hidden;
+  overflow-y: scroll;
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -11,6 +13,13 @@
   transition: all 250ms ease-out;
 }
 
-.container.open {
-  transform: translateX(0);
+@media (min-width: 550px) {
+  .container {
+    left: inherit;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 600px;
+    max-width: 500px;
+  }
 }

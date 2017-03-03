@@ -9,7 +9,7 @@
   transition: all 200ms ease-in-out;
 }
 .icon:hover {
-  background: #00B0FF;
+  /*background: #00B0FF;*/
   box-shadow: 0 2px 5px black;
 }
 

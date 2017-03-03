@@ -17,16 +17,17 @@ class Icon extends React.Component {
     className: "",
   };
 
-  handleClickEvent({ target }) {
-    
-  }
+  // Use for drag eveents later
+  // handleClickEvent({ target }) {
+  //
+  // }
 
   render() {
     const { className } = this.props;
     return (
       // <i className={cx(s.icon)}></i>
       <i className={cx(s.icon, className)}
-        onClick={e => (this.handleClickEvent(e))} ></i>
+        onClick={e => (this.props.onClick(e))} ></i>
     );
   }
 }
