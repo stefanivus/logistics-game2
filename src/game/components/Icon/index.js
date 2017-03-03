@@ -18,7 +18,7 @@ class Icon extends React.Component {
   };
 
   handleClickEvent({ target }) {
-
+    
   }
 
   render() {

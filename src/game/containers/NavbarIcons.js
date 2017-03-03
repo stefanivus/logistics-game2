@@ -3,6 +3,7 @@ import cx from 'classnames';
 // import s from './Layout.css';
 
 import Icon from '../components/Icon';
+import SideMenu from '../components/GameNavbar/SideMenu';
 
 /*
   Navbar Icons Container
@@ -13,17 +14,26 @@ import Icon from '../components/Icon';
   Methods:
     pull vehicles, employees, and clients from redux
     display content
-    open and close side Menu
     change :hover to "isActive" className so we can keep icon highlighted
+
+    // Icon
+    send click handler to icon
+
+
+    // Side Menu
+      - open and close side Menu
+      -  side menu content
 */
 class NavbarIconsContainer extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+    faIcons: PropTypes.array,
   };
 
   static defaultProps = {
     className: "",
+    faIcons: ["fa-bicycle", "fa-truck"]
   };
 
   render() {
@@ -31,9 +41,14 @@ class NavbarIconsContainer extends React.Component {
 
     return (
       <div className={className}>
-        <Icon className="fa fa-truck fa-3x"/>
-        <Icon className="fa fa-id-card-o fa-3x"/>
-        <Icon className="fa fa-users fa-3x"/>
+
+        {/* Icons that toggle side menu */}
+        {this.props.faIcons.map((icon) => {
+          return (<Icon className={"fa fa-3x " + icon} key={icon} />);
+        })}
+
+        <SideMenu />
+
       </div>
     );
   }

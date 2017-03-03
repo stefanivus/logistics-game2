@@ -7,6 +7,8 @@ import s from './Layout.css';
 import GameNavbar from '../GameNavbar';
 import IconsContainer from '../../containers/NavbarIcons';
 
+const navIcons = ["fa-truck", "fa-id-card-o", "fa-users"];
+
 class Layout extends React.Component {
   render() {
     return (
@@ -15,7 +17,7 @@ class Layout extends React.Component {
         {/* <Header /> */}
 
         <GameNavbar title="Logistics">
-          <IconsContainer />
+          <IconsContainer faIcons={navIcons} />
         </GameNavbar>
 
         <div {...this.props} className={cx(s.links)}/>
