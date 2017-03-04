@@ -28,7 +28,7 @@ import { createStore, combineReducers } from 'redux';
 const initialState_company = {
   employees: [],
   vehicles: [],
-  clents: []
+  clients: []
 };
 
 const reducer_company = (state = initialState_company, action) => {
@@ -46,23 +46,23 @@ const reducer_company = (state = initialState_company, action) => {
         vehicles: [
           ...state.vehicles,
           {
-            ...action.vehicles,
+            ...action.vehicle,
             // id = next largest id
-            id: state.vehicles.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
+            id: state.vehicles.reduce((maxId, todo) => {
+              return Math.max(todo.id, maxId)
+            }, -1) + 1
           }
         ]
       }
 
       // else return default state
     case 'REMOVE_VEHICLE':
-      // if (hasVehicle(state.vehicles, action.id)) {
-      //
-      //   var idx = state.vehicles.indexOf()
-      //   return {
-      //     ...state,
-      //     vehicles:
-      //   }
-      // }
+      return {
+        ...state,
+        vehicles: state.vehicles.filter(vehicle => {
+          return vehicle.id !== action.vehicle.id;
+        })
+      }
     default:
       return state;
   }

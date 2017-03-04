@@ -48,39 +48,58 @@ class NavbarIconsContainer extends React.Component {
       menuOpen: false,
       title: "Vehicles",
       data: [], // array of vehicles/employees/client objects
+
+      loading: false
     }
 
     // Bind Functions
     this.toggleSideMenu = this.toggleSideMenu.bind(this);
   }
 
+  componendDidMount() {
+    if (this.state.menuOpen &&
+        (this.state.title !== "" || this.state.title.length < 3) ) {
+      this.loadSideMenuData(this.state.title);
+    }
+  }
+
   /*
     category => employee, vehicles, clients
   */
-  getItemsFromState(category){
-
+  getSideMenuData(category){
+    var categoryName = category.toLowerCase();
+    return this.props.stateCompany[categoryName];
+    // this.setState({
+    //   data: this.props.stateCompany[categoryName]
+    // });
   }
 
   toggleSideMenu(title) {
+    // Add vehicle
+    const defaultVehicle = {
+      name: "Truck",
+      mpg: 4,
+      vehicleId: 1 // type of vehicle
+    }
+    this.props.dispatch({
+      type: "ADD_VEHICLE",
+      vehicle: defaultVehicle
+    });
+
+
+
     if (this.state.title !== title) {
       this.setState({
         title: title,
-        // data: [] // change data too
+        data: this.getSideMenuData(title), // change data too
         menuOpen: true
       });
     } else { // close menu
       this.setState({menuOpen: !this.state.menuOpen});
     }
-
-
-    // Add vehicle
-    this.props.dispatch(actionCreators.addVehicle());
-    console.log(this.props.stateCompany);
-
-    if (!this.state.menuOpen) {
-      this.props.dispatch(actionCreators.removeVehicle());
-    }
   }
+
+
 
   render() {
     const { className } = this.props;
@@ -94,7 +113,8 @@ class NavbarIconsContainer extends React.Component {
           {/* Icons that toggle side menu */}
           {this.props.faIcons.map((icon) => {
             return (
-              <Icon key={icon.css}
+              <Icon
+                key={icon.css}
                 title={icon.title}
                 className={"fa fa-3x " + icon.css}
                 onClick={this.toggleSideMenu}/>

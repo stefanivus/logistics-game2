@@ -59,7 +59,15 @@ class SideMenu extends React.Component {
           <hr />
         </div>
 
-        </div>
+
+        {/* Cateogry Data => i.e. Vehicle/Employee/Client Objects */}
+        <h2>
+          {this.props.data[0] && this.props.data[0].name}
+        </h2>
+        <h3>
+          {this.props.data[0] && this.props.data[0].mpg}
+        </h3>
+      </div>
     );
   }
 }

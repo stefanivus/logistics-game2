@@ -17,27 +17,8 @@ export function addVehicle(vehicle = defaultVehicle) {
 }
 
 export function removeVehicle(vehicle = defaultVehicle) {
-  return (dispatch, getState) => {
-    const { company } = getState();
-
-    var idx = findVehicle(company.vehicles, vehicle.id);
-    if (idx !== -1) {
-      dispatch()
-    }
-  }
-
   return {
-    type: "ADD_VEHICLE",
-    id: vehicle.id,
+    type: "REMOVE_VEHICLE",
     vehicle
   }
-}
-
-function findVehicle(arr = [], id) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].id == id)
-      return i;
-  }
-
-  return -1;
 }
