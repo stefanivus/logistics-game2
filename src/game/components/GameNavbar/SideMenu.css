@@ -4,9 +4,9 @@
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
-  top: 152px;
+  top: 100px;
   left: 0;
-  height: 100%;
+  height: calc(100% - 130px); /* -30 from padding, -100 from top */
   width: 100%;
   padding: 15px 25px;
 
@@ -34,6 +34,7 @@
     top: 99px;
     left: inherit;
     right: 0;
+    /*right: -18px; */ /* For hiding scroll bar */
     max-height: 900px;
     max-width: 500px;
 

@@ -87,15 +87,34 @@ class NavbarIconsContainer extends React.Component {
     });
 
 
-
+    // ACTUAL FUNCTION ======================
+    /*
+        When selecting a different category, change:
+          - title
+          - data
+          - menuOpen
+    */
     if (this.state.title !== title) {
       this.setState({
         title: title,
         data: this.getSideMenuData(title), // change data too
         menuOpen: true
       });
-    } else { // close menu
-      this.setState({menuOpen: !this.state.menuOpen});
+    }
+
+    /*
+      When selecting the same category and opening the menu, change:
+          - data (update data displayed)
+          - menuOpen
+    */
+    else if (!this.state.menuOpen) { // close menu
+      this.setState({
+        data: this.getSideMenuData(title), // change data too
+        menuOpen: true
+      });
+    }
+    else {
+      this.setState({ menuOpen: !this.state.menuOpen });
     }
   }
 
