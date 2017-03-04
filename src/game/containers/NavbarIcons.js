@@ -33,7 +33,10 @@ class NavbarIconsContainer extends React.Component {
 
   static defaultProps = {
     className: "",
-    faIcons: ["fa-bicycle", "fa-truck"]
+    faIcons: [
+      {title: "Vehicles",  css: "fa-truck"},
+      {title: "Employees", css: "fa-id-card-o"},
+    ]
   };
 
   constructor(props) {
@@ -41,7 +44,8 @@ class NavbarIconsContainer extends React.Component {
 
     this.state = {
       menuOpen: false,
-
+      title: "Vehicles",
+      data: [], // array of vehicles/employees/client objects
     }
 
     // Bind Functions
@@ -53,13 +57,15 @@ class NavbarIconsContainer extends React.Component {
   */
   getItemsFromState(item){}
 
-  toggleSideMenu() {
-    // if (this.state.menuOpen) { // Its open, close the menu
-    //
-    // } else { // its closed, open it
-    //
-    // }
-    this.setState({ menuOpen: !this.state.menuOpen });
+  toggleSideMenu(title) {
+    if (this.state.title !== title) {
+      this.setState({
+        title: title,
+        // data: [] // change data too
+      });
+    } else { // close menu
+      this.setState({menuOpen: !this.state.menuOpen});
+    }
   }
 
   render() {
@@ -72,8 +78,9 @@ class NavbarIconsContainer extends React.Component {
           {/* Icons that toggle side menu */}
           {this.props.faIcons.map((icon) => {
             return (
-              <Icon key={icon}
-                className={"fa fa-3x " + icon}
+              <Icon key={icon.css}
+                title={icon.title}
+                className={"fa fa-3x " + icon.css}
                 onClick={this.toggleSideMenu}/>
             );
           })}
@@ -81,7 +88,8 @@ class NavbarIconsContainer extends React.Component {
 
         <SideMenu
           open={this.state.menuOpen}
-          data={[]} />
+          title={this.state.title}
+          data={this.state.data} />
 
       </div>
     );

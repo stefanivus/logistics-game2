@@ -15,7 +15,18 @@
   border-bottom-left-radius: 10px;
   transform: translateX(100%);
   transition: all 250ms ease-out;
+  text-align: center;
 }
+
+.title hr {
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  width: 90%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 @media (min-width: 550px) {
   .container {
@@ -23,7 +34,7 @@
     top: 99px;
     left: inherit;
     right: 0;
-    max-height: 600px;
+    max-height: 900px;
     max-width: 500px;
 
     /* Colors & Styles */

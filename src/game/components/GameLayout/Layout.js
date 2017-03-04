@@ -7,7 +7,11 @@ import s from './Layout.css';
 import GameNavbar from '../GameNavbar';
 import IconsContainer from '../../containers/NavbarIcons';
 
-const navIcons = ["fa-truck", "fa-id-card-o", "fa-users"];
+const navIcons = [
+  {title: "Vehicles",  css: "fa-truck"},
+  {title: "Employees", css: "fa-id-card-o"},
+  {title: "Clients",   css: "fa-users"},
+];
 
 class Layout extends React.Component {
   render() {

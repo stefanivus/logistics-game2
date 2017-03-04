@@ -18,7 +18,8 @@ class SideMenu extends React.Component {
   };
 
   shouldComponentUpdate(nextProps) {
-    return (nextProps.open !== this.props.open);
+    return (nextProps.open !== this.props.open) || // close
+          (nextProps.title !== this.props.title) // update info
   }
 
   componentDidUpdate(prevProps) {
@@ -49,9 +50,16 @@ class SideMenu extends React.Component {
     const { className } = this.props;
 
     return (
-      <div ref={node => (this.container = node)} className={`jc-sideMenu ${s.container}`}>
-        SideMenu
-      </div>
+      <div
+        ref={node => (this.container = node)}
+        className={`jc-sideMenu ${s.container}`}
+      >
+        <div className={s.title}>
+          <h1>{this.props.title}</h1>
+          <hr />
+        </div>
+
+        </div>
     );
   }
 }
