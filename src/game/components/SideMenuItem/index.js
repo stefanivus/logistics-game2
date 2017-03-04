@@ -23,20 +23,24 @@ import s from './styles.css'
     3. Name
     4. Deliveries button to see their delivery schedule
 */
-class DashItem extends React.Component {
+class SideMenuItem extends React.Component {
   render() {
     return (
-      <div className={s.itemContainer}>
+      <div className={s.container}>
 
         <i className={cx("fa fa-bicycle", s.icon)}></i>
 
-        <div className={s.name}>Bicycle</div>
+        <div className={s.name}>
+          {this.props.name}
+        </div>
 
-        <div className={s.milesPerGallon}>mpg: unlimited</div>
+        <div className={s.milesPerGallon}>
+          mpg: {this.props.mpg}
+        </div>
 
       </div>
     )
   }
 }
 
-export default DashItem;
+export default SideMenuItem;

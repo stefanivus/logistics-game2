@@ -14,7 +14,6 @@ import SideMenu from '../components/GameNavbar/SideMenu';
     Which icon is open (with :hover)
 
   Methods:
-    pull vehicles, employees, and clients from redux
     display content
     change :hover to "isActive" className so we can keep icon highlighted
 

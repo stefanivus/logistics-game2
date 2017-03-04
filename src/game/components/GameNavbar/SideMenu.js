@@ -3,6 +3,9 @@ import { findDOMNode } from 'react-dom';
 import cx from 'classnames';
 import s from './SideMenu.css';
 
+import MenuItem from '../SideMenuItem';
+
+
 /*
   SideMenu
 */
@@ -63,19 +66,7 @@ class SideMenu extends React.Component {
         {/* Cateogry Data => i.e. Vehicle/Employee/Client Objects */}
         {this.props.data.map((data) => {
           return (
-            <div style={{
-              padding: "10px",
-              marginBottom: "10px",
-              border: "1px solid red",
-              borderRadius: "15px"
-            }}>
-              <h2>
-                Name: {data && data.name}
-              </h2>
-              <h3>
-                Miles Per Gallon: {data && data.mpg}
-              </h3>
-            </div>
+            <MenuItem {...data} key={'menuItem'+data.id}/>
           )
         })}
       </div>
