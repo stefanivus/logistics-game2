@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 /*
     The main states we need to keep track of:
@@ -109,6 +109,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(reducer);
+const finalReducer = combineReducers({"company": reducer_company, "map": reducer_map});
+const store = createStore(finalReducer);
 
 export default store;

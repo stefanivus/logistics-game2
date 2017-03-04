@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import s from './NavbarIcons.css';
+import { connect } from 'react-redux'
 
 import Icon from '../components/Icon';
 import SideMenu from '../components/GameNavbar/SideMenu';
@@ -53,15 +54,18 @@ class NavbarIconsContainer extends React.Component {
   }
 
   /*
-    item => employee, vehicles, clients
+    category => employee, vehicles, clients
   */
-  getItemsFromState(item){}
+  getItemsFromState(category){
+
+  }
 
   toggleSideMenu(title) {
     if (this.state.title !== title) {
       this.setState({
         title: title,
         // data: [] // change data too
+        menuOpen: true
       });
     } else { // close menu
       this.setState({menuOpen: !this.state.menuOpen});
@@ -71,6 +75,8 @@ class NavbarIconsContainer extends React.Component {
   render() {
     const { className } = this.props;
 
+    console.log(this.props.store);
+    
     return (
       <div className={s.iconContainer}>
 
