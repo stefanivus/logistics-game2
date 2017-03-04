@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import s from './NavbarIcons.css';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import * as actionCreators from '../actioncreators/company';
 
 import Icon from '../components/Icon';
 import SideMenu from '../components/GameNavbar/SideMenu';
@@ -70,13 +71,22 @@ class NavbarIconsContainer extends React.Component {
     } else { // close menu
       this.setState({menuOpen: !this.state.menuOpen});
     }
+
+
+    // Add vehicle
+    this.props.dispatch(actionCreators.addVehicle());
+    console.log(this.props.stateCompany);
+
+    if (!this.state.menuOpen) {
+      this.props.dispatch(actionCreators.removeVehicle());
+    }
   }
 
   render() {
     const { className } = this.props;
 
-    console.log(this.props.store);
-    
+    console.log(this.props.stateCompany);
+
     return (
       <div className={s.iconContainer}>
 
@@ -102,4 +112,17 @@ class NavbarIconsContainer extends React.Component {
   }
 }
 
-export default NavbarIconsContainer;
+
+
+// Redux
+// =====================
+// Get State and give as Prop to Component
+const mapStateToProps = (state, props) => {
+  return {
+    stateCompany: state.company
+  }
+}
+
+const ConnectedNavbarIconsContainer = connect(mapStateToProps)(NavbarIconsContainer);
+
+export default ConnectedNavbarIconsContainer;

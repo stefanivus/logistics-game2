@@ -5,23 +5,39 @@
    bicycle   truck   train    plane
 */
 const defaultVehicle = {
-  id: 999,
   name: "Truck",
   mpg: 4,
   vehicleId: 1
 }
-export const addVehicle = (vehicle = defaultVehicle) => {
-    return {
-      type: "ADD_VEHICLE",
-      id: vehicle.id,
-      vehicle
-    }
+export function addVehicle(vehicle = defaultVehicle) {
+  return {
+    type: "ADD_VEHICLE",
+    vehicle
+  }
 }
 
-// export const removeVehicle = (vehicle) => {
-//     return {
-//       type: "REMOVE_VEHICLE",
-//       id: vehicle.id,
-//       vehicle
-//     }
-// }
+export function removeVehicle(vehicle = defaultVehicle) {
+  return (dispatch, getState) => {
+    const { company } = getState();
+
+    var idx = findVehicle(company.vehicles, vehicle.id);
+    if (idx !== -1) {
+      dispatch()
+    }
+  }
+
+  return {
+    type: "ADD_VEHICLE",
+    id: vehicle.id,
+    vehicle
+  }
+}
+
+function findVehicle(arr = [], id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id == id)
+      return i;
+  }
+
+  return -1;
+}

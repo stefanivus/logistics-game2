@@ -36,14 +36,45 @@ const reducer_company = (state = initialState_company, action) => {
     /*
     case 'ADD_EMPLOYEE':
     case 'REMOVE_EMPLOYEE':
-    case 'ADD_VEHICLE':
-    case 'REMOVE_VEHICLE':
     case 'ADD_CLIENT':
     case 'REMOVE_CLIENT':
     */
+
+    case 'ADD_VEHICLE':
+      return {
+        ...state,
+        vehicles: [
+          ...state.vehicles,
+          {
+            ...action.vehicles,
+            // id = next largest id
+            id: state.vehicles.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
+          }
+        ]
+      }
+
+      // else return default state
+    case 'REMOVE_VEHICLE':
+      // if (hasVehicle(state.vehicles, action.id)) {
+      //
+      //   var idx = state.vehicles.indexOf()
+      //   return {
+      //     ...state,
+      //     vehicles:
+      //   }
+      // }
     default:
       return state;
   }
+}
+
+function hasVehicle(arr, id) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id == id) {
+      return true;
+    }
+  }
+  return false;
 }
 
 
@@ -109,7 +140,10 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const finalReducer = combineReducers({"company": reducer_company, "map": reducer_map});
+const finalReducer = combineReducers({
+  "company": reducer_company,
+  "map": reducer_map
+});
 const store = createStore(finalReducer);
 
 export default store;
