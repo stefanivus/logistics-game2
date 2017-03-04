@@ -66,7 +66,7 @@ class SideMenu extends React.Component {
         {/* Cateogry Data => i.e. Vehicle/Employee/Client Objects */}
         {this.props.data.map((data) => {
           return (
-            <MenuItem {...data} key={'menuItem'+data.id}/>
+            <MenuItem type={this.props.title.toLowerCase()} {...data} key={'menuItem'+data.id}/>
           )
         })}
       </div>
