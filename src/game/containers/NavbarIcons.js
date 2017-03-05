@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import s from './NavbarIcons.css';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actioncreators/company';
 
 import Icon from '../components/Icon';
 import SideMenu from '../components/GameNavbar/SideMenu';
