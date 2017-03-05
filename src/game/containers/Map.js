@@ -19,5 +19,7 @@ const mapStateToProps = (state, props) => {
     map: state.map
   }
 }
+
 const connectedMapContainer = connect(mapStateToProps)(MapContainer);
+
 export default connectedMapContainer;
