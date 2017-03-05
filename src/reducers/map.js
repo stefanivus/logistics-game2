@@ -9,8 +9,14 @@
 */
 const mapInitialState = {
   gridSize: 0,        // length of one side; N x N Map
-  dropzoneCoords: [], // drop zone (row, col)
-  basecampCoords: []  // base camp (row, col)
+  dropzoneCoords: [
+    { id: 0, row: 0, col: 0}, // id will correspond to company.clients.id
+    // { id: 1, row: 1, col: 1},
+    // { id: 2, row: 2, col: 2},
+  ],
+  basecampCoords: [
+
+  ]  // base camp (row, col)
 }
 
 const mapReducer = (state = mapInitialState, action) => {

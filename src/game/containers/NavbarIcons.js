@@ -123,8 +123,6 @@ class NavbarIconsContainer extends React.Component {
   render() {
     const { className } = this.props;
 
-    console.log(this.props.stateCompany);
-
     return (
       <div className={s.iconContainer}>
 

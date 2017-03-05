@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 
-import companyReducer from './reducers/company';
+// import companyReducer from './reducers/company';
+import vehiclesReducer from './reducers/vehicles';
 import mapReducer from './reducers/map';
 
 /*
@@ -88,7 +89,9 @@ const reducer = (state = initialState, action) => {
 };
 
 const finalReducer = combineReducers({
-  "company": companyReducer,
+  "company": {
+    vehicles: vehiclesReducer
+  },
   "map": mapReducer,
 });
 

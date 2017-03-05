@@ -14,6 +14,36 @@ import MapTile from './MapTile'
       State
 */
 class Map extends React.Component {
+  render() {
+
+    console.log("===========================================");
+    console.log("Map:");
+    console.log(this.props.Map);
+    console.log("===========================================");
+
+    return (
+      <div>
+        <h1>Map!</h1>
+
+        {/* Map being used - pass event handlers */}
+        <div {...this.props} />
+      </div>
+    );
+  }
+}
+
+export default Map;
+
+
+
+
+
+
+
+
+
+
+class OldMap extends React.Component {
 
   static propTypes = {
     gridSize: PropTypes.number
@@ -108,5 +138,3 @@ class Map extends React.Component {
     );
   }
 }
-
-export default Map;
