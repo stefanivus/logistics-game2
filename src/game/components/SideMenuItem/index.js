@@ -30,10 +30,10 @@ class SideMenuItem extends React.Component {
     }
 
     else if (this.props.type === 'employees') {
-
+      return (<div></div>);
     }
     else if (this.props.type === 'clients') {
-
+      return (<div></div>);
     }
   }
 }
@@ -65,8 +65,9 @@ class VehicleItem extends React.Component {
 
     return (
       <div className={s.container}>
-        {/* Row */}
-        <div className={s.row}>
+
+        {/* Row => Type of Vehicle */}
+        <div className={cx(s.row, s.title)}>
           <i className={cx("fa", iconClassName, s.icon)}></i>
 
           <div className={s.name}>
@@ -74,11 +75,18 @@ class VehicleItem extends React.Component {
           </div>
         </div>
 
-        {/* Row */}
+        <hr className={s.underlineTitle} />
+
+        {/* Row => Fuel Efficiency */}
         <div className={s.row}>
+
           <div className={s.milesPerGallon}>
-            mpg: {this.props.mpg}
+            <div>mpg: {this.props.mpg} moves per gallon</div>
+            <div>speed: {this.props.speed} moves per turn</div>
+            <div>capacity: {this.props.capacity} kg</div>
+            <div></div>
           </div>
+
         </div>
       </div>
     );

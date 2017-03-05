@@ -6,9 +6,11 @@
 */
 const defaultVehicle = {
   name: "Truck",
+  vehicleId: 1,
   mpg: 4,
-  vehicleId: 1
-}
+  capacity: 10,
+  speed: 4
+};
 export function addVehicle(vehicle = defaultVehicle) {
   return {
     type: "ADD_VEHICLE",

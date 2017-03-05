@@ -77,9 +77,11 @@ class NavbarIconsContainer extends React.Component {
     // Add vehicle
     const defaultVehicle = {
       name: "Truck",
+      vehicleId: 1,
       mpg: 4,
-      vehicleId: 1 // type of vehicle
-    }
+      capacity: 10,
+      speed: 4
+    };
     this.props.dispatch({
       type: "ADD_VEHICLE",
       vehicle: defaultVehicle

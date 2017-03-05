@@ -20,10 +20,12 @@ class Layout extends React.Component {
 
         {/* <Header /> */}
 
+        {/* Fixed Navbar and Side Menu */}
         <GameNavbar title="Logistics">
           <IconsContainer faIcons={navIcons} />
         </GameNavbar>
 
+        {/* Children */}
         <div {...this.props} className={cx(s.links)}/>
 
       </div>
