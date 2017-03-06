@@ -45,6 +45,11 @@ class GameNavbar extends React.Component {
     console.log(this.props.Company);
     console.log("==================================");
 
+    console.log("==================================");
+    console.log("Company State: ");
+    console.log(this.props.Vehicles);
+    console.log("==================================");
+
     return (
       <nav className={s.container} style={style}>
 
@@ -87,7 +92,8 @@ class GameNavbar extends React.Component {
 */
 const mapStateToProps = (state, props) => {
   return {
-    Company: state.company
+    Company: state.company,
+    Vehicles: state.vehicles
   }
 }
 

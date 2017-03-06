@@ -7,19 +7,16 @@
       col: -1
     }
 */
-const mapInitialState = {
-  gridSize: 0,        // length of one side; N x N Map
+const initialState = {
+  gridSize: 10,        // length of one side; N x N Map; default to 10x10 board
   dropzoneCoords: [
     { id: 0, row: 0, col: 0}, // id will correspond to company.clients.id
-    // { id: 1, row: 1, col: 1},
-    // { id: 2, row: 2, col: 2},
   ],
-  basecampCoords: [
+  basecampCoords: [],  // base camp (row, col)
 
-  ]  // base camp (row, col)
 }
 
-const mapReducer = (state = mapInitialState, action) => {
+const mapReducer = (state = initialState, action) => {
   switch (action.type) {
     /*
     case 'ADD_DROPZONE':

@@ -1,0 +1,38 @@
+{
+  "bicycle": {
+      "name": "Bicycle",
+      "vehicleId": 0,
+      "mpg": -1,
+      "capacity": 4,
+      "speed": 2,
+      "inUse": false,
+      "returnOnTurn": -1
+  },
+  "truck": {
+      "name": "Truck",
+      "vehicleId": 1,
+      "mpg": 4,
+      "capacity": 10,
+      "speed": 10,
+      "inUse": false,
+      "returnOnTurn": -1
+  },
+  "train": {
+      "name": "Train",
+      "vehicleId": 2,
+      "mpg": 10,
+      "capacity": 65,
+      "speed": 25,
+      "inUse": false,
+      "returnOnTurn": -1
+  },
+  "plane": {
+      "name": "Plane",
+      "vehicleId": 3,
+      "mpg": 25,
+      "capacity": 40,
+      "speed": 40,
+      "inUse": false,
+      "returnOnTurn": -1
+  }
+}
