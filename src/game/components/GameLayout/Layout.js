@@ -2,9 +2,7 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import s from './Layout.css';
 
-import GameNavbar from '../GameNavbar';
-
-
+import GameNavbar from '../GameNavbar/Navbar';
 
 const navIcons = [
   {title: "Vehicles",  css: "fa fa-3x fa-truck", stateName: "vehicles"},

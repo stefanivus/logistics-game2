@@ -3,13 +3,12 @@ import React from 'react'
 
 import GameLayout from './components/GameLayout/Layout'
 import MapContainer from './containers/Map'
-// import GameDashboard from './components/GameDashboard'
 
 
 class Logistics extends React.Component {
   render() {
     return (
-      <GameLayout>
+      <GameLayout> {/* Contains Navbar and Side Menu */}
 
         <MapContainer>
 

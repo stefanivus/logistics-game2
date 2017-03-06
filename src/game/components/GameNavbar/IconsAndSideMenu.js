@@ -28,20 +28,10 @@ class NavbarIconsContainer extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    icons: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        css: PropTypes.string.isRequired
-      })
-    ),
   };
 
   static defaultProps = {
-    className: "",
-    icons: [
-      {title: "Vehicles",  css: "fa fa-3x fa-truck"},
-      {title: "Employees", css: "fa fa-3x fa-id-card-o"},
-    ]
+    className: ""
   };
 
   constructor(props) {
