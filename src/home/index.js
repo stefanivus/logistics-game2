@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import Link from '../../components/Link'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layout/Layout'
 import s from './styles.css'
 
 class HomePage extends React.Component {

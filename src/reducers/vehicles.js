@@ -1,11 +1,9 @@
 import vehicleDefaults from '../gameDefaults/vehicle-defaults.json';
 
-let defaultBicycle = Object.create(vehicleDefaults.bicycle);
-defaultBicycle.name = "Default Bicycle";
-
+let defaultBicycle = Object.assign({}, vehicleDefaults.bicycle);
 
 const initialState = [
-   defaultBicycle   // start with a bicycle
+   defaultBicycle,   // start with a bicycle
 ];
 
 const vehiclesReducer = (state = initialState, action) => {
@@ -38,7 +36,7 @@ const vehiclesReducer = (state = initialState, action) => {
         }
       });
 
-      
+
     // case 'UPDATE_WILLRETURN':
     // case 'CHANGE_MPG':
     // case 'CHANGE_CAPACITY':

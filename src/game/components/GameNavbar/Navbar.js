@@ -46,7 +46,7 @@ class GameNavbar extends React.Component {
     console.log("==================================");
 
     console.log("==================================");
-    console.log("Company State: ");
+    console.log("Vehicles State: ");
     console.log(this.props.Vehicles);
     console.log("==================================");
 
