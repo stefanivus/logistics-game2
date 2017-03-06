@@ -1,13 +1,13 @@
-import React from 'react'
-//import s from './game.css'
+import React from 'react';
+//import s from './game.css';
 
 // Refactored
 import Layout from '../../components/Layout/Layout';
+import GameNavbar from './containers/GameNavbar';
 
 // Need to be Refactored and Moved
-import GameNavbar from './components/GameNavbar/Navbar';
+import OldNavbar from './components/GameNavbar/navbar';
 import MapContainer from './containers/Map';
-
 
 
 const navIcons = [
@@ -20,10 +20,8 @@ class MainGame extends React.Component {
   render() {
     return (
       <Layout>
-
         {/* Fixed-to-Top Navbar and Side Menu, Contains Navbar and Side Menu */}
-        <GameNavbar title="Logistics" icons={navIcons} />
-
+        <GameNavbar title="Logistics" />
 
 
         {/* <MapContainer /> */}

@@ -10,19 +10,21 @@ const vehiclesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_VEHICLE':
       return [
-        ...state,
         {
-          ...action.vehicle,
           // id = next largest id
-          id: state.vehicles.reduce((maxId, todo) => {
-            return Math.max(todo.id, maxId)
-          }, -1) + 1
-        }
+          id: (
+            state.vehicles.reduce((maxId, todo) => {
+              return Math.max(todo.id, maxId);
+            }, -1) + 1
+          ),
+          ...action.vehicle
+        },
+        ...state
       ];
 
     case 'REMOVE_VEHICLE':
       return state.vehicles.filter(vehicle => {
-        return vehicle.id !== action.vehicle.id;
+        return vehicle.id !== action.id;
       });
 
     case 'TOGGLE_INUSE':

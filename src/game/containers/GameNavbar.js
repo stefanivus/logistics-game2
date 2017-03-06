@@ -1,32 +1,17 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import cx from 'classnames';
-import s from './Navbar.css';
 
-import Icon from './Icon'
-import SideMenu from './SideMenu'
+import Navbar from '../../../components/Navbar/Navbar';
+import SideMenu from '../../../components/SideMenu';
+import Icon from '../../../components/Icon';
+
+const navIcons = [
+  {title: "Vehicles",  css: "fa fa-3x fa-truck"},
+  {title: "Employees", css: "fa fa-3x fa-id-card-o"},
+  {title: "Clients",   css: "fa fa-3x fa-users"},
+];
 
 class GameNavbar extends React.Component {
-
-  static propTypes = {
-    title: PropTypes.string,
-    icons: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        css: PropTypes.string.isRequired
-      })
-    ),
-  };
-
-  // Examples
-  static defaultProps = {
-    title: "Title",
-    icons: [
-      {title: "Vehicles",  css: "fa fa-3x fa-truck"},
-      {title: "Employees", css: "fa fa-3x fa-id-card-o"},
-    ]
-  };
-
   constructor(props) {
     super(props);
 
@@ -39,20 +24,23 @@ class GameNavbar extends React.Component {
   }
 
   render() {
-    const { title, children, style } = this.props;
+    console.log("==================================");
+    console.log("Company State: ");
+    console.log(this.props.Company);
+    console.log("==================================");
+
+    console.log("==================================");
+    console.log("Vehicles State: ");
+    console.log(this.props.Vehicles);
+    console.log("==================================");
+
 
     return (
-      <nav className={s.container} style={style}>
-
-
-        {/* Title on Left Side */}
-        <div className={s.title}>{title}</div>
-
-
+      <Navbar title="Logistics">
         {/* Icons and Side Menu on Right Side */}
-        <div className={s.iconsAndSideMenu}>
+        <div style={{position: 'relative'}}>
           {/* Load Icons */}
-          {this.props.icons && this.props.icons.map((icon) => {
+          {navIcons.map((icon) => {
             return (
               <Icon
                 title={icon.title}
@@ -69,13 +57,10 @@ class GameNavbar extends React.Component {
             data={this.state.data} />
 
         </div>
-
-
-      </nav>
-    );
+      </Navbar>
+    )
   }
 }
-
 
 /* Redux
    ============================

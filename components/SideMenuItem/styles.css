@@ -1,0 +1,49 @@
+
+/*
+  Side Menu Item Container
+  --------------------------------------
+*/
+.container {
+  border: 1px solid #00BFA5;
+  border-radius: 10px;
+  box-shadow: 2px 5px 5px #2b2b2b;
+
+  width: 95%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 25px 0;
+  font-size: 1.5rem;
+  /*text-align: center;*/
+
+  transition: all 250ms ease-in;
+}
+
+.container:hover {
+  box-shadow: 2px 7px 20px black;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.underlineTitle {
+  border: 2px solid white;
+  width: 70%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+
+/*
+  Dash Icon, Vehicle Name, and MPG
+  ----------------------------------------
+*/
+.icon { margin: 0 10px; }
+.name { margin: 0 5px; }
+.milesPerGallon { margin: 0 10px; }

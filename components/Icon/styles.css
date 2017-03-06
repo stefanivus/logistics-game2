@@ -1,0 +1,40 @@
+/* Link child elements */
+.icon {
+  /* Space the children out */
+  padding: 5px 20px;
+  margin: 0px 10px;
+
+  background: #00BFA5;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+}
+.icon:hover {
+  /*background: #00B0FF;*/
+  box-shadow: 0 2px 5px black;
+}
+
+
+.icon:hover {
+    -webkit-animation: jiggle 0.2s 4;
+    -moz-animation-duration: 0.2s;
+    -moz-animation-name: jiggle;
+    -moz-animation-iteration-count: 4;
+}
+
+@-moz-keyframes jiggle {
+    0% {
+        -moz-transform: rotate(-3deg);
+    }
+    50% {
+        -moz-transform: rotate(3deg);
+    }
+}
+
+@-webkit-keyframes jiggle {
+    0% {
+        -webkit-transform: rotate(-3deg);
+        }
+    50% {
+        -webkit-transform: rotate(3deg);
+    }
+}
