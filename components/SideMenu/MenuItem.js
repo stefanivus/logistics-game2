@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import s from './styles.css'
+import s from './MenuItem.css'
 
 /*
   Shows Item Type - employee, vehicle, or client

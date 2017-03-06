@@ -6,15 +6,7 @@ import Layout from '../../components/Layout/Layout';
 import GameNavbar from './containers/GameNavbar';
 
 // Need to be Refactored and Moved
-import OldNavbar from './components/GameNavbar/navbar';
 import MapContainer from './containers/Map';
-
-
-const navIcons = [
-  {title: "Vehicles",  css: "fa fa-3x fa-truck"},
-  {title: "Employees", css: "fa fa-3x fa-id-card-o"},
-  {title: "Clients",   css: "fa fa-3x fa-users"},
-];
 
 class MainGame extends React.Component {
   render() {

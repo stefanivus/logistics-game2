@@ -1,9 +1,15 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+// Components
 import Navbar from '../../../components/Navbar/Navbar';
-import SideMenu from '../../../components/SideMenu';
+import SideMenu from '../../../components/SideMenu/SideMenu';
 import Icon from '../../../components/Icon';
+
+// Action Creators
+import * as vehicleAC from '../../actioncreators/vehicle';
+// import * as employeeAC from '../../actioncreators/employee';
+// import * as clientAC from '../../actioncreators/client';
 
 const navIcons = [
   {title: "Vehicles",  css: "fa fa-3x fa-truck"},
@@ -16,14 +22,49 @@ class GameNavbar extends React.Component {
     super(props);
 
     this.state = {
-      title: this.props.title,
+      title: "Default",
       loading: false,   // or spinner
       menuOpen: false,  // opens side menu
       data: [],         // array of vehicles/employees/client objects
     }
+
+    // Bind Functions
+    this.toggleSideMenu = this.toggleSideMenu.bind(this);
+  }
+
+  /*
+      If same icon is clicked twice, close side menu
+      If diff. icon is clicked, change this.state title and data
+  */
+  toggleSideMenu(title) {
+    if (this.state.title !== title) {
+
+      // Temp because theres no this.props.Employees or Clients
+      if (title === 'Vehicles') {
+        this.setState({
+          title: title,
+          data: this.props[title],
+          menuOpen: true
+        });
+      }
+      else {
+        this.setState({
+          title: title,
+          data: [],
+          menuOpen: true
+        });
+      }
+
+
+    } else {
+      this.setState({
+        menuOpen: !this.state.menuOpen
+      });
+    }
   }
 
   render() {
+
     console.log("==================================");
     console.log("Company State: ");
     console.log(this.props.Company);
@@ -37,8 +78,9 @@ class GameNavbar extends React.Component {
 
     return (
       <Navbar title="Logistics">
-        {/* Icons and Side Menu on Right Side */}
         <div style={{position: 'relative'}}>
+          {/* Icons and Side Menu on Right Side */}
+
           {/* Load Icons */}
           {navIcons.map((icon) => {
             return (
@@ -69,7 +111,9 @@ class GameNavbar extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     Company: state.company,
-    Vehicles: state.vehicles
+    Vehicles: state.vehicles,
+    // Employees: state.employees,
+    // Clients: state.clients,
   }
 }
 

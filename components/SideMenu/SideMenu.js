@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import cx from 'classnames';
-import s from './styles.css';
+import s from './SideMenu.css';
 
-import MenuItem from '../SideMenuItem';
+import MenuItem from './MenuItem';
 
 
 /*

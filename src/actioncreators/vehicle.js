@@ -1,4 +1,4 @@
-import vehicleDefaults from '../gameDefaults/vehicle.defaults.json';
+import vehicleDefaults from '../gameDefaults/vehicle-defaults.json';
 
 export function addVehicle(newVehicle /* = vehicleDefaults.bicycle */) {
   if (newVehicle === null || newVehicle === undefined)
