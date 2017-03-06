@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import s from './map.css'
 
-import MapTile from './MapTile'
+// import MapTile from './MapTile'
 
 
 /*
@@ -27,6 +27,17 @@ class Map extends React.Component {
 
         {/* Map being used - pass event handlers */}
         <div {...this.props} />
+      </div>
+    );
+  }
+}
+
+
+class MapTile extends React.Component {
+  render() {
+    return (
+      <div>
+
       </div>
     );
   }

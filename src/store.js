@@ -7,6 +7,11 @@ import mapReducer from './reducers/map';
 /*
     The main states we need to keep track of:
 
+    Need to add Turn Based Functionality
+
+
+
+
     1. Company
       - List of Employees
       - List of Vehicles
@@ -19,6 +24,9 @@ import mapReducer from './reducers/map';
           - Products
       - NOTE all of this can be sent from the component
              and State creates a new client object
+
+     2b. Employees
+     2c. Vehicles - already made
 
     3. Map
       - Size of Map

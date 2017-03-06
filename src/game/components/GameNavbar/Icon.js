@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-import s from './styles.css';
+import s from './Icon.css';
 
 
 /*

@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-import s from './NavbarIcons.css';
+import s from './IconsAndSideMenu.css';
 import { connect } from 'react-redux';
 
-import Icon from '../components/Icon';
-import SideMenu from '../components/GameNavbar/SideMenu';
+import Icon from '../Icon';
+import SideMenu from './SideMenu';
 
 /*
   Navbar Icons Container
@@ -28,14 +28,19 @@ class NavbarIconsContainer extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    faIcons: PropTypes.array,
+    icons: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        css: PropTypes.string.isRequired
+      })
+    ),
   };
 
   static defaultProps = {
     className: "",
-    faIcons: [
-      {title: "Vehicles",  css: "fa-truck"},
-      {title: "Employees", css: "fa-id-card-o"},
+    icons: [
+      {title: "Vehicles",  css: "fa fa-3x fa-truck"},
+      {title: "Employees", css: "fa fa-3x fa-id-card-o"},
     ]
   };
 
@@ -66,9 +71,9 @@ class NavbarIconsContainer extends React.Component {
   */
   getSideMenuData(category){
     var categoryName = category.toLowerCase();
-    return this.props.stateCompany[categoryName];
+    return this.props.Company[categoryName];
     // this.setState({
-    //   data: this.props.stateCompany[categoryName]
+    //   data: this.props.Company[categoryName]
     // });
   }
 
@@ -119,16 +124,16 @@ class NavbarIconsContainer extends React.Component {
   }
 
 
-
   render() {
     const { className } = this.props;
 
     return (
       <div className={s.iconContainer}>
 
+        {/* Icons */}
         <div className={className}>
           {/* Icons that toggle side menu */}
-          {this.props.faIcons.map((icon) => {
+          {this.props.icons.map((icon) => {
             return (
               <Icon
                 key={icon.css}
@@ -139,6 +144,8 @@ class NavbarIconsContainer extends React.Component {
           })}
         </div>
 
+
+        {/* Side Menu */}
         <SideMenu
           open={this.state.menuOpen}
           title={this.state.title}
@@ -149,14 +156,12 @@ class NavbarIconsContainer extends React.Component {
   }
 }
 
-s
-
 // Redux
 // =====================
 // Get State and give as Prop to Component
 const mapStateToProps = (state, props) => {
   return {
-    stateCompany: state.company
+    Company: state.company
   }
 }
 

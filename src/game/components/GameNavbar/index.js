@@ -2,6 +2,9 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import s from './styles.css';
 
+import SideMenu from './SideMenu'
+import Icon from './Icon'
+
 class GameNavbar extends React.Component {
 
   static propTypes = {
@@ -20,8 +23,7 @@ class GameNavbar extends React.Component {
 
         <div className={s.title}>{title}</div>
 
-        {/* Child Components */}
-        <div {...this.props} className={s.links}/>
+        {this.props.icons && }
 
       </nav>
     )
