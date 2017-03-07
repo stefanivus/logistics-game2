@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import s from './game.css';
 
-// Refactored
 import Layout from '../../components/Layout/Layout';
 import GameNavbar from './containers/GameNavbar';
+import Board from '../../components/Board/Board';
+
 
 // Need to be Refactored and Moved
 // import MapContainer from './containers/Map';
@@ -31,7 +31,7 @@ class MainGame extends React.Component {
         {/* Fixed-to-Top Navbar and Side Menu, Contains Navbar and Side Menu */}
         <GameNavbar title="Logistics" />
 
-        {/* <MapContainer /> */}
+        <Board></Board>
 
       </Layout>
     );
