@@ -7,7 +7,7 @@ import Layout from '../../components/Layout/Layout';
 import GameNavbar from './containers/GameNavbar';
 
 // Need to be Refactored and Moved
-import MapContainer from './containers/Map';
+// import MapContainer from './containers/Map';
 
 class MainGame extends React.Component {
   render() {
