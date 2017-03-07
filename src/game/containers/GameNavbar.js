@@ -69,10 +69,14 @@ class GameNavbar extends React.Component {
     console.log("Company State: ");
     console.log(this.props.Company);
     console.log("==================================");
-
-    console.log("==================================");
     console.log("Vehicles State: ");
     console.log(this.props.Vehicles);
+    console.log("==================================");
+    console.log("Employees State: ");
+    console.log(this.props.Employees);
+    console.log("==================================");
+    console.log("Clients State: ");
+    console.log(this.props.Clients);
     console.log("==================================");
 
 
@@ -97,7 +101,7 @@ class GameNavbar extends React.Component {
             open={this.state.menuOpen}
             title={this.state.title}
             data={this.state.data} />
-
+          
         </div>
       </Navbar>
     )
@@ -112,8 +116,8 @@ const mapStateToProps = (state, props) => {
   return {
     Company: state.company,
     Vehicles: state.vehicles,
-    // Employees: state.employees,
-    // Clients: state.clients,
+    Employees: state.employees,
+    Clients: state.clients,
   }
 }
 
