@@ -6,103 +6,100 @@ import s from './MenuItem.css'
   Shows Item Type - employee, vehicle, or client
   Vehicle - input location to delivery to
 
-
-  Employee:
-    1. Filler Icon of Person
-    2. Name
-
-  Vehicle:
-    1. Icon of type of vehicle
-    2. MPG
-    3.
-
-  Client:
-    1. Icon?
-    2. Happiness level
-    3. Name
-    4. Deliveries button to see their delivery schedule
+  NOTE
+    * There are 3 extra view rendering components below
+      (they only render views)
 */
 class SideMenuItem extends React.Component {
   render() {
+    var iconClassName = "";
 
     if (this.props.type === 'vehicles') {
-      return (<VehicleItem {...this.props} />);
+      /*
+        Vehicle Id:
+            0  =>  Bicycle
+            1  =>  Truck
+            2  =>  Train
+            3  =>  Plane
+      */
+      // Vehicle Font Awesome Icon
+      if      (this.props.vehicleId === 0){ iconClassName = "fa-bicycle"; }
+      else if (this.props.vehicleId === 1){ iconClassName = "fa-truck";   }
+      else if (this.props.vehicleId === 2){ iconClassName = "fa-train";   }
+      else if (this.props.vehicleId === 3){ iconClassName = "fa-plane";   }
+
+      return (
+        <MenuItem name={this.props.name} iconClassName={iconClassName}>
+          <VehicleItem
+            mpg={this.props.mpg}
+            speed={this.props.speed}
+            capacity={this.props.capacity} />
+        </MenuItem>
+      );
     }
 
     else if (this.props.type === 'employees') {
-      return (<div></div>);
+      return (
+        <MenuItem name={this.props.name} iconClassName="">
+          <DefaultItem
+            happiness={this.props.happiness}
+            id={this.props.id} />
+        </MenuItem>
+      );
     }
     else if (this.props.type === 'clients') {
-      return (<div></div>);
+      return (
+        <MenuItem name={this.props.name} iconClassName="">
+          <DefaultItem
+            happiness={this.props.happiness}
+            id={this.props.id} />
+        </MenuItem>
+      );
     }
   }
 }
 
-class VehicleItem extends React.Component {
-  /*
-    Vehicle Id:
-        0  =>  Bicycle
-        1  =>  Truck
-        2  =>  Train
-        3  =>  Plane
-  */
-  render() {
-    var iconClassName = "";
+const MenuItem = (props) => {
+  return (
+    <div className={s.container}>
 
+      {/* Title and Icon */}
+      <div className={cx(s.row, s.title)}>
+        <i className={cx("fa", props.iconClassName, s.icon)}></i>
 
-    if (this.props.vehicleId === 0) {
-      iconClassName = "fa-bicycle";
-    }
-    else if (this.props.vehicleId === 1) {
-      iconClassName = "fa-truck";
-    }
-    else if (this.props.vehicleId === 2) {
-      iconClassName = "fa-train";
-    }
-    else if (this.props.vehicleId === 3) {
-      iconClassName = "fa-plane";
-    }
-
-    return (
-      <div className={s.container}>
-
-        {/* Row => Type of Vehicle */}
-        <div className={cx(s.row, s.title)}>
-          <i className={cx("fa", iconClassName, s.icon)}></i>
-
-          <div className={s.name}>
-            {this.props.name}
-          </div>
-        </div>
-
-        <hr className={s.underlineTitle} />
-
-        {/* Row => Fuel Efficiency */}
-        <div className={s.row}>
-
-          <div className={s.milesPerGallon}>
-            <div>mpg: {this.props.mpg} moves per gallon</div>
-            <div>speed: {this.props.speed} moves per turn</div>
-            <div>capacity: {this.props.capacity} kg</div>
-            <div></div>
-          </div>
-
+        <div className={s.name}>
+          {props.name}
         </div>
       </div>
-    );
-  }
+      
+      <hr className={s.underlineTitle} />
+
+
+      <div className={s.row}>
+        {props.children}
+      </div>
+
+    </div>
+  )
 }
 
+const VehicleItem = (props) => {
+  return (
+    <div className={s.content}>
+      <div>mpg: {props.mpg} moves per gallon</div>
+      <div>speed: {props.speed} moves per turn</div>
+      <div>capacity: {props.capacity} kg</div>
+    </div>
+  );
+}
 
-// class EmployeeItem extends eact.Component {
-//   render() {
-//     return ();
-//   }
-// }
-// class ClientItem extends eact.Component {
-//   render() {
-//     return ();
-//   }
-// }
+const DefaultItem = (props) => {
+  return (
+    <div className={s.content}>
+      <div>happiness: {props.happiness}</div>
+      <div>id: {props.id}</div>
+    </div>
+  );
+}
 
 export default SideMenuItem;

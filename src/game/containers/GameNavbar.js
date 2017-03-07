@@ -38,23 +38,11 @@ class GameNavbar extends React.Component {
   */
   toggleSideMenu(title) {
     if (this.state.title !== title) {
-
-      // Temp because theres no this.props.Employees or Clients
-      if (title === 'Vehicles') {
-        this.setState({
-          title: title,
-          data: this.props[title],
-          menuOpen: true
-        });
-      }
-      else {
-        this.setState({
-          title: title,
-          data: [],
-          menuOpen: true
-        });
-      }
-
+      this.setState({
+        title: title,
+        data: this.props[title],
+        menuOpen: true
+      });
 
     } else {
       this.setState({
@@ -79,7 +67,6 @@ class GameNavbar extends React.Component {
     console.log(this.props.Clients);
     console.log("==================================");
 
-
     return (
       <Navbar title="Logistics">
         <div style={{position: 'relative'}}>
@@ -101,7 +88,7 @@ class GameNavbar extends React.Component {
             open={this.state.menuOpen}
             title={this.state.title}
             data={this.state.data} />
-          
+
         </div>
       </Navbar>
     )
