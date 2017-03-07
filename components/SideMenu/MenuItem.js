@@ -7,99 +7,129 @@ import s from './MenuItem.css'
   Vehicle - input location to delivery to
 
   NOTE
-    * There are 3 extra view rendering components below
-      (they only render views)
+    * There are 3 extra rendering methods within SideCardContainer
+      but they're only to render views
 */
-class SideMenuItem extends React.Component {
+class SideCardContainer extends React.Component {
+
+  renderCardContainer() {
+    return (props) => {
+      return (
+        <div className={s.container}>
+
+          {/* Title and Icon */}
+          <div className={cx(s.row, s.title)}>
+            <i className={cx("fa", props.iconClassName, s.icon)}></i>
+
+            <div className={s.name}>
+              {props.name}
+            </div>
+          </div>
+
+          <hr className={s.underlineTitle} />
+
+
+          <div className={s.row}>
+            {props.children}
+          </div>
+
+        </div>
+      );
+    }
+  }
+
+  renderVehicleItem() {
+    return (props) => {
+      return (
+        <div className={s.content}>
+          <div>mpg: {props.mpg} moves per gallon</div>
+          <div>speed: {props.speed} moves per turn</div>
+          <div>capacity: {props.capacity} kg</div>
+        </div>
+      );
+    }
+  }
+
+  renderDefaultItem(happiness, id) {
+    return (props) => {
+      return (
+        <div className={s.content}>
+          <div>id: {props.id}</div>
+          <div>happiness: {props.happiness}</div>
+        </div>
+      );
+    }
+  }
+
+  getVehicleIconClassName(vehicleId) {
+    /*
+      Vehicle Id:
+          0  =>  Bicycle
+          1  =>  Truck
+          2  =>  Train
+          3  =>  Plane
+    */
+    // Vehicle Font Awesome Icon
+    if      (vehicleId === 0){ return "fa-bicycle"; }
+    else if (vehicleId === 1){ return "fa-truck";   }
+    else if (vehicleId === 2){ return "fa-train";   }
+    else if (vehicleId === 3){ return "fa-plane";   }
+
+    return "";
+  }
+
   render() {
-    var iconClassName = "";
+    const CardContainer = this.renderCardContainer();
 
     if (this.props.type === 'vehicles') {
-      /*
-        Vehicle Id:
-            0  =>  Bicycle
-            1  =>  Truck
-            2  =>  Train
-            3  =>  Plane
-      */
-      // Vehicle Font Awesome Icon
-      if      (this.props.vehicleId === 0){ iconClassName = "fa-bicycle"; }
-      else if (this.props.vehicleId === 1){ iconClassName = "fa-truck";   }
-      else if (this.props.vehicleId === 2){ iconClassName = "fa-train";   }
-      else if (this.props.vehicleId === 3){ iconClassName = "fa-plane";   }
+      let iconClassName = this.getVehicleIconClassName(this.props.vehicleId);
+      const VehicleItem = this.renderVehicleItem();
 
       return (
-        <MenuItem name={this.props.name} iconClassName={iconClassName}>
+        <CardContainer name={this.props.name} iconClassName={iconClassName}>
           <VehicleItem
             mpg={this.props.mpg}
             speed={this.props.speed}
             capacity={this.props.capacity} />
-        </MenuItem>
+        </CardContainer>
       );
-    }
 
-    else if (this.props.type === 'employees') {
+    } else {
+      const DefaultItem = this.renderDefaultItem();
+
       return (
-        <MenuItem name={this.props.name} iconClassName="">
+        <CardContainer name={this.props.name} iconClassName="">
           <DefaultItem
-            happiness={this.props.happiness}
-            id={this.props.id} />
-        </MenuItem>
-      );
-    }
-    else if (this.props.type === 'clients') {
-      return (
-        <MenuItem name={this.props.name} iconClassName="">
-          <DefaultItem
-            happiness={this.props.happiness}
-            id={this.props.id} />
-        </MenuItem>
+            id={this.props.id}
+            happiness={this.props.happiness} />
+        </CardContainer>
       );
     }
   }
 }
 
-const MenuItem = (props) => {
-  return (
-    <div className={s.container}>
+// const CardContainer = (props) => {
+//   return (
+//     <div className={s.container}>
+//
+//       {/* Title and Icon */}
+//       <div className={cx(s.row, s.title)}>
+//         <i className={cx("fa", props.iconClassName, s.icon)}></i>
+//
+//         <div className={s.name}>
+//           {props.name}
+//         </div>
+//       </div>
+//
+//       <hr className={s.underlineTitle} />
+//
+//
+//       <div className={s.row}>
+//         {props.children}
+//       </div>
+//
+//     </div>
+//   )
+// }
 
-      {/* Title and Icon */}
-      <div className={cx(s.row, s.title)}>
-        <i className={cx("fa", props.iconClassName, s.icon)}></i>
-
-        <div className={s.name}>
-          {props.name}
-        </div>
-      </div>
-      
-      <hr className={s.underlineTitle} />
-
-
-      <div className={s.row}>
-        {props.children}
-      </div>
-
-    </div>
-  )
-}
-
-const VehicleItem = (props) => {
-  return (
-    <div className={s.content}>
-      <div>mpg: {props.mpg} moves per gallon</div>
-      <div>speed: {props.speed} moves per turn</div>
-      <div>capacity: {props.capacity} kg</div>
-    </div>
-  );
-}
-
-const DefaultItem = (props) => {
-  return (
-    <div className={s.content}>
-      <div>happiness: {props.happiness}</div>
-      <div>id: {props.id}</div>
-    </div>
-  );
-}
-
-export default SideMenuItem;
+export default SideCardContainer;

@@ -6,10 +6,12 @@ import Navbar from '../../../components/Navbar/Navbar';
 import SideMenu from '../../../components/SideMenu/SideMenu';
 import Icon from '../../../components/Icon';
 
+/*
 // Action Creators
 import * as vehicleAC from '../../actioncreators/vehicle';
-// import * as employeeAC from '../../actioncreators/employee';
-// import * as clientAC from '../../actioncreators/client';
+import * as employeeAC from '../../actioncreators/employee';
+import * as clientAC from '../../actioncreators/client';
+*/
 
 const navIcons = [
   {title: "Vehicles",  css: "fa fa-3x fa-truck"},
@@ -43,8 +45,8 @@ class GameNavbar extends React.Component {
         data: this.props[title],
         menuOpen: true
       });
-
-    } else {
+    }
+    else {
       this.setState({
         menuOpen: !this.state.menuOpen
       });
@@ -52,23 +54,8 @@ class GameNavbar extends React.Component {
   }
 
   render() {
-
-    console.log("==================================");
-    console.log("Company State: ");
-    console.log(this.props.Company);
-    console.log("==================================");
-    console.log("Vehicles State: ");
-    console.log(this.props.Vehicles);
-    console.log("==================================");
-    console.log("Employees State: ");
-    console.log(this.props.Employees);
-    console.log("==================================");
-    console.log("Clients State: ");
-    console.log(this.props.Clients);
-    console.log("==================================");
-
     return (
-      <Navbar title="Logistics">
+      <Navbar title={this.props.title}>
         <div style={{position: 'relative'}}>
           {/* Icons and Side Menu on Right Side */}
 

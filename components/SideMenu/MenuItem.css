@@ -15,7 +15,7 @@
   font-size: 1.5rem;
   /*text-align: center;*/
 
-  transition: all 250ms ease-in;
+  transition: all 175ms ease-out;
 }
 
 .container:hover {
@@ -28,8 +28,8 @@
 
 .underlineTitle {
   border: 2px solid white;
-  width: 70%;
-  max-width: 300px;
+  width: 80%;
+  max-width: 150px;
   margin-left: auto;
   margin-right: auto;
 }
