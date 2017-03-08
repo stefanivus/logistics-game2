@@ -1,0 +1,12 @@
+.tiles-container {
+  /*border: 1px solid green;*/
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.tiles-row {
+  display: flex;
+  justify-content: center;
+}

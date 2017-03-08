@@ -31,7 +31,7 @@ class MainGame extends React.Component {
         {/* Fixed-to-Top Navbar and Side Menu, Contains Navbar and Side Menu */}
         <GameNavbar title="Logistics" />
 
-        <Board></Board>
+        <Board size={50} ></Board>
 
       </Layout>
     );
