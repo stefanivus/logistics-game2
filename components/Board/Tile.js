@@ -6,20 +6,17 @@ class Tile extends React.Component {
   static propTypes = {
     road: PropTypes.bool,     // is a road; can be used by vehicles
     obstacle: PropTypes.bool, // cannot be used by vehicles
-    dropzone: PropTypes.bool, // can be either dropzone or basecamp
-    basecamp: PropTypes.bool, //   never both
+    dropzone: PropTypes.bool, // can be either dropzone or basecamp, but never both
+    basecamp: PropTypes.bool,
   }
 
   render() {
     return (
-      <div style={{
-        border: '1px solid red',
-        overflow: 'hidden',
+      <div className={s.container} style={{
         height: this.props.size + 'px',
-        width: this.props.size + 'px',
-        // margin: '15px'
+        width: this.props.size + 'px'
       }}>
-        <h2>{this.props.size}</h2>
+        <span>{this.props.number}</span>
       </div>
     );
   }

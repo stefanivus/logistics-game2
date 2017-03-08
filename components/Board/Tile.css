@@ -1,0 +1,6 @@
+.container {
+  border: 1px solid red;
+  overflow: hidden;
+  min-height: 25px;
+  min-width: 25px;
+}

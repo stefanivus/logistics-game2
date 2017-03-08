@@ -1,12 +1,13 @@
 .tiles-container {
   /*border: 1px solid green;*/
+  overflow-x: scroll;
   width: 95%;
-  max-width: 1400px;
+  max-width: 2000px;
   margin: 0 auto;
   padding: 50px 0;
 }
 
 .tiles-row {
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*/
 }

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-// import Promise from 'bluebird';
 import cx from 'classnames';
 import s from './Board.css';
 
@@ -10,26 +9,27 @@ class Board extends React.Component {
     super(props);
 
     this.state = {
-      boardHeight: 0,
-      boardWidth: 0,
       tileHeight: 0,
       tileWidth: 0,
       tiles: [[]] // 2-D array of <Tile>
     }
 
     // Bind Functions
+    this.getDimensions = this.getDimensions.bind(this);
   }
 
   componentDidMount() {
-    Promise.resolve()
-    .then(this.getDimensions())
-    .then(this.getTiles())
-    // this.getDimensions();
-    // this.getTiles();
+    this.getDimensions();
+
+    window.addEventListener('resize', this.getDimensions, false);
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log(this.state);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.getDimensions, false);
   }
 
   getDimensions() {
@@ -40,12 +40,12 @@ class Board extends React.Component {
 
     [tileHeight, tileWidth] = this.getTileDimensions(windowHeight, windowWidth);
 
-    this.setState({
-      boardHeight: windowHeight,
-      boardWidth: windowWidth,
-      tileHeight: tileHeight,
-      tileWidth: tileWidth
-    });
+    if (Math.max(tileHeight, tileWidth) > 25) {
+      this.setState({
+        tileHeight: tileHeight,
+        tileWidth: tileWidth
+      });
+    }
   }
 
   getTileDimensions(windowHeight, windowWidth) {
@@ -68,14 +68,18 @@ class Board extends React.Component {
         allTiles.push(currRow.slice());
         currRow = [];
       }
-      currRow.push(<Tile size={tileSize} />);
+      currRow.push(<Tile size={tileSize} number={i+1} />);
     }
+
+    allTiles.push(currRow.slice());
 
     return allTiles;
   }
 
+
   render() {
     const allTiles = this.getTiles();
+    console.log(allTiles);
 
     return (
       <div className={s['tiles-container']}>
